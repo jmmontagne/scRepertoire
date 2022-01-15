@@ -74,7 +74,7 @@ clonalDiversity <- function(df, cloneCall = "gene+nt", chain = "both",
     colnames(mat) <- c("Shannon", "Inv.Simpson", "Chao", "ACE", "Inv.Pielou")
     mat[,"Inv.Pielou"] <- 1 - mat[,"Inv.Pielou"]
     if (!is.null(group.by)) {
-      mat[,group.by] <- str_split(group.element.uniq, "[.]", simplify = TRUE)[,1]
+      mat[,group.by] <- str_split(sort(group.element.uniq), "[.]", simplify = TRUE)[,1]
     } else {
       group.by <- "Group"
       mat[,group.by] <- names(df)
